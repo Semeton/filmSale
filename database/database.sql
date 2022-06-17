@@ -34,12 +34,26 @@ CREATE TABLE `products` (
 
 CREATE TABLE `cart` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
+  `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `cart_items` (
+
+CREATE TABLE `orders` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
+  `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
+  `cart_id` INT(11) FOREIGN KEY REFERENCES cart(id),
+  `created_at` TIMESTAMP NOT NULL,
+  `modified_at` TIMESTAMP NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `sales` (
+  `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `order_date` DATE NOT NULL,
+  `sale` INT(11) NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
