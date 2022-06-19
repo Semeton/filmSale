@@ -48,8 +48,8 @@ function getMonthlySales()
 function getGenreAction()
 {
     global $db;
-    $data = "SELECT * FROM products WHERE genre = 'action'";
-    $genre_query = mysqli_query($db, $data) or die("Error");
+    $sql = "SELECT * FROM products WHERE genre = 'action'";
+    $genre_query = mysqli_query($db, $sql) or die("Error");
     
     if(mysqli_num_rows($genre_query) > 0)
     {
@@ -62,13 +62,18 @@ function getGenreAction()
 /**********************************************
  * List list the customers whose age is above 50
  **********************************************/
-$age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25)";
-$data = "SELECT * FROM users WHERE $age > 50";
-$age_query = mysqli_query($db, $data) or die("Error");
-
-if(mysqli_num_rows($query) > 0)
+function getCustomerAge()
 {
-    $fetch_age_data = mysqli_fetch_assoc($age_query);
+    global $db;
+    $age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25)";
+    $sql = "SELECT * FROM users WHERE $age > 50";
+    $age_query = mysqli_query($db, $sql) or die("Error");
+    
+    if(mysqli_num_rows($age_query) > 0)
+    {
+        $fetch_age_data = mysqli_fetch_assoc($age_query);
+        return $fetch_age_data['name'];
+    }
 }
 
 ?>
