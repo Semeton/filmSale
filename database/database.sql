@@ -36,6 +36,8 @@ CREATE TABLE `cart` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
   `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
+  `quantity` BIGINT(20) NOT NULL,
+  `price` DECIMAL NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
