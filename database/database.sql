@@ -22,24 +22,28 @@ CREATE TABLE `genre` (
 
 CREATE TABLE `products` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
-  `genre_id` INT(11) FOREIGN KEY REFERENCES genre(id),
+  `user_id` BIGINT(20),
+  `genre_id` INT(11),
   `product_name` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `quantity` BIGINT(20) NOT NULL,
   `price` DECIMAL NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
-  `modified_at` TIMESTAMP NOT NULL
+  `modified_at` TIMESTAMP NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`genre_id`) REFERENCES `genre`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `cart` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
-  `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
+  `user_id` BIGINT(20),
+  `product_id` INT(11),
   `quantity` BIGINT(20) NOT NULL,
   `price` DECIMAL NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
-  `modified_at` TIMESTAMP NOT NULL
+  `modified_at` TIMESTAMP NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
