@@ -1,0 +1,24 @@
+{
+  "name": "filmsale",
+  "version": "1.0.0",
+  "description": "An application that allow multiple users purchase film products",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Semeton/filmSale.git"
+  },
+  "keywords": [
+    "filmSale",
+    "PHP",
+    "SQL"
+  ],
+  "author": "Semeton Balogun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Semeton/filmSale/issues"
+  },
+  "homepage": "https://github.com/Semeton/filmSale#readme"
+}
