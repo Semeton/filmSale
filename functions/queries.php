@@ -8,7 +8,8 @@ function getCustomerPurchase($id){
     global $db;
     $sql = "SELECT SUM(quantity) FROM orders WHERE user_id=$id";
     $total_query = mysqli_query($db, $sql) or die("Error");
-    return $total_query;
+    $total = mysqli_fetch_all($total_query, MYSQLI_ASSOC);
+    return $total;
 }
 
 

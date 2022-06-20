@@ -23,7 +23,7 @@ $purchases = getCustomerPurchase($id);
 
 <body>
     <!-- List all purchases by a single user -->
-    <!-- <p><span><small>Total film purchase: </small></span> <strong></strong><?php //echo $purchases; ?> </p> -->
+    <p><span><small>Total film purchase: </small></span> <strong></strong><?php $purchases[0]["SUM(quantity)"] ; ?> </p>
 
     <!-- List all products ending with 's' -->
     <table class="table">
