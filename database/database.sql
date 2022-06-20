@@ -47,12 +47,15 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `orders` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
-  `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
+  `user_id` BIGINT(11),
+  `product_id` INT(11),
   `quantity` BIGINT(20) NOT NULL,
-  `cart_id` INT(11) FOREIGN KEY REFERENCES cart(id),
+  `cart_id` INT(11),
   `created_at` TIMESTAMP NOT NULL,
-  `modified_at` TIMESTAMP NOT NULL
+  `modified_at` TIMESTAMP NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`),
+  FOREIGN KEY (`cart_id`) REFERENCES `cart`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `sales` (

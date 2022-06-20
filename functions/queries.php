@@ -1,15 +1,5 @@
 <?php
-/*****************************
- * Connecting to the database
- ****************************/
-	$db = new mysqli("localhost", "root", "");
-	
-	if ($conn->connect_error) 
-    {
-		die("Error connecting to database: " . mysqli_connect_error());
-	}	
-	//select filmSale database	
-	$db->select_db("filmSale");
+include('config.php');
 
 /*************************************************************
  * List the total numbers of films purchased by the customers
@@ -80,14 +70,16 @@ function getGenreAction()
 function getCustomerAge()
 {
     global $db;
-    $age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25) FROM users";
-    $sql = "SELECT * FROM users WHERE $age > 50";
+    // $age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25) FROM users";
+    $sql = "SELECT * FROM users WHERE age > 50";
     $age_query = mysqli_query($db, $sql) or die("Error");
     
     if(mysqli_num_rows($age_query) > 0)
     {
-        $fetch_age_data = mysqli_fetch_assoc($age_query);
+        $fetch_age_data = mysqli_fetch_all($age_query, MYSQLI_ASSOC);
         return $fetch_age_data;
+    }else{
+        echo 'No user found';
     }
 }
 
