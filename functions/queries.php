@@ -14,9 +14,11 @@
 /*************************************************************
  * List the total numbers of films purchased by the customers
 **************************************************************/
-function getCustomerPurchase(){
+function getCustomerPurchase($id){
     global $db;
-    $sql = "SELECT "
+    $sql = "SELECT SUM(quantity) FROM orders WHERE user_id=$id";
+    $total_query = mysqli_query($db, $sql) or die("Error");
+    return $total_query;
 }
 
 
