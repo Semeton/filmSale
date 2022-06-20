@@ -37,7 +37,7 @@ CREATE TABLE `cart` (
   `user_id` BIGINT(20),
   `product_id` INT(11),
   `quantity` BIGINT(20) NOT NULL,
-  `price` DECIMAL NOT NULL,
+  `price` VARCHAR(10, 2) NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL,
   FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
