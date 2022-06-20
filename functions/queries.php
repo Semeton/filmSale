@@ -8,7 +8,7 @@
     {
 		die("Error connecting to database: " . mysqli_connect_error());
 	}	
-	//select a specific database	
+	//select filmSale database	
 	$db->select_db("filmSale");
 
 /*************************************************************
@@ -24,8 +24,8 @@ function getProductWithS()
 	global $db;
     $sql = "SELECT * FROM products WHERE product_name LIKE '%s'";
     $s_query = mysqli_query($db, $sql) or die("Error");
-	$s_products = mysqli_fetch_assoc($s_query);
-	return $s_products['name'];
+	$s_products = mysqli_fetch_array($s_query);
+	return $s_products;
 }
 
 

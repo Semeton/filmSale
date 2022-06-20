@@ -22,7 +22,6 @@ CREATE TABLE `genre` (
 
 CREATE TABLE `products` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_id` BIGINT(20),
   `genre_id` INT(11),
   `product_name` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
@@ -30,7 +29,6 @@ CREATE TABLE `products` (
   `price` DECIMAL NOT NULL,
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL,
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
   FOREIGN KEY (`genre_id`) REFERENCES `genre`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
