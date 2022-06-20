@@ -28,10 +28,12 @@ $product_s = getProductWithS();
             </tr>
         </thead>
         <tbody>
+            <?php foreach($product_s as $product): ?>
             <tr>
-                <td><?php echo $product_s['id']; ?></td>
-                <td><?php echo $product_s['product_name']; ?></td>
+                <td><?php echo $product['id']; ?></td>
+                <td><?php echo $product['product_name']; ?></td>
             </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </body>

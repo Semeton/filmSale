@@ -24,8 +24,14 @@ function getProductWithS()
 	global $db;
     $sql = "SELECT * FROM products WHERE product_name LIKE '%s'";
     $s_query = mysqli_query($db, $sql) or die("Error");
-	$s_products = mysqli_fetch_array($s_query);
-	return $s_products;
+    
+    if(mysqli_num_rows($s_query) > 0)
+    {
+        $s_products = mysqli_fetch_all($s_query, MYSQLI_ASSOC);
+        return $s_products;
+    } else{
+        echo "There are no products with ending with 's'";
+    }
 }
 
 
