@@ -55,14 +55,16 @@ function getGenreAction()
 {
     global $db;
     $sql = "SELECT * FROM products WHERE genre_id = 
-            (SELECT id FROM genre WHERE genre='action') LIMIT 1";
+            (SELECT id FROM genre WHERE genre='Action') LIMIT 1";
     $genre_query = mysqli_query($db, $sql) or die("Error");
     
     if(mysqli_num_rows($genre_query) > 0)
     {
-        $genre_action = mysqli_fetch_assoc($genre_query);
+        $genre_action = mysqli_fetch_all($genre_query, MYSQLI_ASSOC);
+        return $genre_action;
+    }else{
+        echo "No movie of genre 'action'";
     }
-    return $genre_action['name'];
 }
  
 

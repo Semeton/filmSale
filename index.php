@@ -2,6 +2,8 @@
 include('./functions/queries.php');
 
 $product_s = getProductWithS();
+$action_genre = getGenreAction();
+var_dump($action_genre); die();
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +35,26 @@ $product_s = getProductWithS();
                 <td><?php echo $product['id']; ?></td>
                 <td><?php echo $product['product_name']; ?></td>
             </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+
+    <!-- List all products ending of genre 'action' -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($action_genre as $action): ?>
+            <?php $i = 1; ?>
+            <tr>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $action['product_name']; ?></td>
+            </tr>
+            <?php $i++; ?>
             <?php endforeach ?>
         </tbody>
     </table>

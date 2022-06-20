@@ -49,6 +49,7 @@ CREATE TABLE `orders` (
   `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user_id` INT(11) FOREIGN KEY REFERENCES users(id),
   `product_id` INT(11) FOREIGN KEY REFERENCES products(id),
+  `quantity` BIGINT(20) NOT NULL,
   `cart_id` INT(11) FOREIGN KEY REFERENCES cart(id),
   `created_at` TIMESTAMP NOT NULL,
   `modified_at` TIMESTAMP NOT NULL
