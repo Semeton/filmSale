@@ -80,7 +80,7 @@ function getGenreAction()
 function getCustomerAge()
 {
     global $db;
-    $age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25)";
+    $age = "SELECT FLOOR(date_diff(DAY, @date_of_birth, @Now)/365.25) FROM users";
     $sql = "SELECT * FROM users WHERE $age > 50";
     $age_query = mysqli_query($db, $sql) or die("Error");
     

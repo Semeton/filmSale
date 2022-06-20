@@ -3,6 +3,7 @@ include('./functions/queries.php');
 
 $product_s = getProductWithS();
 $action_genre = getGenreAction();
+$ages = getCustomerAge();
 // var_dump($action_genre); die();
 ?>
 
@@ -54,6 +55,25 @@ $action_genre = getGenreAction();
             <tr>
                 <td><?php echo $i; ?></td>
                 <td><?php echo $action['product_name']; ?></td>
+            </tr>
+            <?php $i++; endforeach ?>
+        </tbody>
+    </table>
+
+    <!-- List all products ending of genre 'action' -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1; ?>
+            <?php foreach($ages as $age): ?>
+            <tr>
+                <td><?php echo $i; ?></td>
+                <td><?php echo $age['name']; ?></td>
             </tr>
             <?php $i++; endforeach ?>
         </tbody>
