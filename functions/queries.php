@@ -14,6 +14,10 @@
 /*************************************************************
  * List the total numbers of films purchased by the customers
 **************************************************************/
+function getCustomerPurchase(){
+    global $db;
+    $sql = "SELECT "
+}
 
 
 /*******************************************************
@@ -55,7 +59,7 @@ function getGenreAction()
 {
     global $db;
     $sql = "SELECT * FROM products WHERE genre_id = 
-            (SELECT id FROM genre WHERE genre='Action') LIMIT 1";
+            (SELECT id FROM genre WHERE genre='Action')";
     $genre_query = mysqli_query($db, $sql) or die("Error");
     
     if(mysqli_num_rows($genre_query) > 0)

@@ -3,7 +3,7 @@ include('./functions/queries.php');
 
 $product_s = getProductWithS();
 $action_genre = getGenreAction();
-var_dump($action_genre); die();
+// var_dump($action_genre); die();
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +30,13 @@ var_dump($action_genre); die();
             </tr>
         </thead>
         <tbody>
+            <?php $i = 1; ?>
             <?php foreach($product_s as $product): ?>
             <tr>
-                <td><?php echo $product['id']; ?></td>
+                <td><?php echo $i; ?></td>
                 <td><?php echo $product['product_name']; ?></td>
             </tr>
-            <?php endforeach ?>
+            <?php $i++; endforeach ?>
         </tbody>
     </table>
 
@@ -48,14 +49,13 @@ var_dump($action_genre); die();
             </tr>
         </thead>
         <tbody>
-            <?php foreach($action_genre as $action): ?>
             <?php $i = 1; ?>
+            <?php foreach($action_genre as $action): ?>
             <tr>
                 <td><?php echo $i; ?></td>
                 <td><?php echo $action['product_name']; ?></td>
             </tr>
-            <?php $i++; ?>
-            <?php endforeach ?>
+            <?php $i++; endforeach ?>
         </tbody>
     </table>
 </body>
